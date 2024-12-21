@@ -7,7 +7,7 @@ buttons:
     text: Annulla
   claim:
     emoji: 🙌
-    text: Claima
+    text: Prendi in carica
   close:
     emoji: ✖️
     text: Chiudi
@@ -19,7 +19,7 @@ buttons:
     text: Crea un ticket
   edit:
     emoji: ✏️
-    text: modifica
+    text: Modifica
   reject_close_request:
     emoji: ✖️
     text: Rifiuta
@@ -47,7 +47,7 @@ commands:
     add:
       added: ➡️ {added} è stato aggiunto da {by}.
       description: Aggiungi un membro al ticket
-      name: add
+      name: aggiungi
       not_staff:
         description: Solo lo staff può aggiungere persone ai ticket.
         title: ❌ Errore
@@ -63,7 +63,7 @@ commands:
         title: ✅ Aggiunto
     claim:
       description: Claima un ticket
-      name: claim
+      name: prendi-in-carica
       not_staff:
         description: Solo lo staff può claimare un ticket.
         title: ❌ Errore
@@ -76,7 +76,7 @@ commands:
       options:
         reason:
           description: La ragione per la chiusura di un ticket
-          name: reason
+          name: motivazione
     force-close:
       closed_one:
         description: Il canale verrà chiuso tra qualche secondo ...
@@ -94,7 +94,7 @@ commands:
         - ✅ Chiudendo %d ticket
         - ✅ chiudendo %d tickets
       description: Chiudi un ticket forzatamente
-      name: force-close
+      name: forza-chiusura
       no_tickets:
         description: >-
           Non esistono ticket che sono rimasti inattivi per più di:
@@ -107,17 +107,17 @@ commands:
         category:
           description: Chiudi tutti i ticket nella specifica categoria (deve essere
             usato con `time`)
-          name: category
+          name: categoria
         reason:
           description: La ragione per la chiusura del/i ticket(s)
-          name: reason
+          name: motivazione
         ticket:
           description: La ragione per la chiusura
           name: ticket
         time:
           description: Chiude tutti i ticket che sono rimasti inattivi per più del
             tempo specificato
-          name: time
+          name: orario
     help:
       description: Mostra il menù di aiuto
       name: help
@@ -145,7 +145,7 @@ commands:
           name: categoria
     new:
       description: Crea un nuovo ticket
-      name: new
+      name: nuovo
       options:
         references:
           description: Il numero di ticket relativi
@@ -264,12 +264,12 @@ dm:
     archived: usa il comando `/transcritto` in **{guild}** per vedere i messaggi archiviati.
     fields:
       closed:
-        name: Chiusi a
+        name: Chiuso il
         value: "{timestamp} (dopo {duration})"
       closed_by: Chiuso da
-      created: Crato
+      created: Creato il
       feedback: Il tuo feedback
-      reason: Chiuso per il motivo
+      reason: Motivazione
       response: Tempo di risposta
       ticket: Ticket
       topic: Topic
@@ -362,11 +362,11 @@ misc:
       Configura il tuo ticket al link {url}.
     title: ❌ Non ci sono categorie di ticket
   not_ticket:
-    description: Puoi usare questo canale solo in un ticket.
+    description: Puoi usare questo comando solo all'interno di un ticket.
     title: ❌ Questo non è un canale ticket
   ratelimited:
-    description: Per favore riprova tra qualche secondo.
-    title: 🐢 Per favore rallenta
+    description: Perfavore riprova tra qualche secondo.
+    title: 🐢 Perfavore rallenta
   role_error:
     description: Ci dispiace ma si è verificato un errore per una errore di configurazione.
     fields:
@@ -379,20 +379,24 @@ misc:
     title: ⚠️ Qualcosa è andato storto
   unknown_category:
     description: Per favore prova con un'atra categoria.
-    title: ❌ Quella categoria non esiste
+    title: ❌ Questa categoria non esiste
   update:
     description: |
       > [Visualizza `{version}` su GitHub]({github})
       > [Changelog]({changelog})
       > [Guida di aggiornamento]({guide})
-    title: Un aggiornamento è disponibile
+    title: È disponibile un aggiornamento
+  error:
+    title: ⚠️ Qualcosa è andato storto
+    description: "Spiacente, si è verificato un errore inaspettato.\nComunicalo ad
+      un amministratore.\n"
 modals:
   feedback:
     comment:
       label: Commento
-      placeholder: Hai del feedback aggiuntivo?
+      placeholder: Hai qualche feedback aggiuntivo?
     rating:
-      label: Rating
+      label: Valutazione
       placeholder: 1-5
     title: Come siamo andati?
   topic:
@@ -401,10 +405,10 @@ modals:
 ticket:
   answers:
     no_value: "*Nessuna risposta*"
-  claimed: 🙌 {user} ha claimato questo ticket.
+  claimed: 🙌 {user} ha preso in carica questo ticket.
   close:
     closed:
-      description: Questo canale verrà eliminato in alcuni secondi…
+      description: Questo canale verrà eliminato tra pochi secondi…
       title: ✅ Ticket chiuso
     forbidden:
       description: Non hai i permessi per chiudere i ticket.
@@ -419,16 +423,16 @@ ticket:
         Clicca "Accetta" per chiuderlo ora, o "Rifiuta" se hai ancora bisogno di aiuto.
       title: ❓ Possiamo chiudere questo ticket?
     user_request:
-      title: ❓ {requestedBy} vorrebbero chiudere questo ticket
+      title: ❓ {requestedBy} vorrebbe chiudere questo ticket
     wait_for_staff: ✋ Per favore aspetta che uno staffer chiuda il ticket.
-    wait_for_user: ✋ Per favore aspetta la risposta del membro.
+    wait_for_user: ✋ Per favore aspetta la risposta dell'utente.
   closing_soon:
     description: |
       Questo ticket verrà chiuso per inattività <t:{timestamp}:R>.
       Invia un messaggio per annullare.
     title: ⌛ Questo ticket verrà chiuso tra poco
   created:
-    description: "Il tuo ticket è stato creato: {channel}."
+    description: "Il tuo ticket è stato creato nel seguente canale: {channel}."
     title: ✅ Ticket creato
   edited:
     description: Le tuo modifiche sono state salvate.
@@ -442,7 +446,7 @@ ticket:
   offline:
     description: Non ci sono membri dello staff attivi in questo momento, quindi potresti
       non ricevere una risposta per un pò di tempo.
-    title: 😴 Non siamo online
+    title: 😴 Non siamo al momento online
   opening_message:
     content: |
       {staff}
@@ -458,7 +462,7 @@ ticket:
       date: Creato
       number: Numero
       topic: Topic
-    title: ℹ️ Riderimenti
+    title: ℹ️ Riferimenti
   released: ♻️ {user} ha creato questo ticket.
   working_hours:
     next:
@@ -466,6 +470,6 @@ ticket:
         lo stesso ricevere una risposta.
       title: 🕗 Non stiamo lavorando al momento
     today:
-      description: Potresti ricevere una risposta, ma non ricominceremo a lavorare
-        fino alle <t:{timestamp}:t> (<t:{timestamp}:R>).
-      title: 🕗 Non stiamo lavorando al momento
+      description: Potresti ricevere una risposta, ma l'assistenza non è garantita
+        fino alle ore <t:{timestamp}:t> (<t:{timestamp}:R>).
+      title: 🕗 L'assistenza non è al momento garantita
