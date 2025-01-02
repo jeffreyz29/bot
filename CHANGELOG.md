@@ -1,3 +1,54 @@
+## [4.0.24](https://github.com/discord-tickets/bot/compare/v4.0.23...v4.0.24) (2024-12-20)
+
+
+### Bug Fixes
+
+* **docker:** use alpine 3.20 instead of 3.21 so prisma can find openssl ([addd5e8](https://github.com/discord-tickets/bot/commit/addd5e896c28597734199947c60b41854deece2d)), closes [/github.com/nodejs/docker-node/issues/2175#issuecomment-2530130523](https://github.com//github.com/nodejs/docker-node/issues/2175/issues/issuecomment-2530130523)
+
+
+
+## [4.0.23](https://github.com/discord-tickets/bot/compare/v4.0.22...v4.0.23) (2024-12-20)
+
+
+### Bug Fixes
+
+* **git:** only ignore top-level directories ([ca38235](https://github.com/discord-tickets/bot/commit/ca38235309c6228f0f2c289c08b4d0dfc18b9e1a))
+* **i18n:** `it/commands.slash.claim.name` ([e10d029](https://github.com/discord-tickets/bot/commit/e10d02913a88d5c1332518321303a0356a2046db))
+
+
+### Features
+
+* guild bans ([30cd541](https://github.com/discord-tickets/bot/commit/30cd5413c4d3154b3421ce92aeaa1cc02974552b))
+* **i18n:** update Czech translations ([39de69d](https://github.com/discord-tickets/bot/commit/39de69d81b0755bb6c1302de56127618aeb06de1))
+* **i18n:** update Dutch translations ([59bfdf8](https://github.com/discord-tickets/bot/commit/59bfdf882b9035d791097ba3ef6ceabfc64c8024))
+* **i18n:** update Italian translations ([3b97696](https://github.com/discord-tickets/bot/commit/3b97696bc585ae79a3a8cacf6a7a381eba6a44b5))
+* **i18n:** update Italian translations ([b22a44c](https://github.com/discord-tickets/bot/commit/b22a44ce1edb3f50e5e6110ea170178a8917e600))
+
+
+
+## [4.0.22](https://github.com/discord-tickets/bot/compare/v4.0.21...v4.0.22) (2024-11-16)
+
+
+### Bug Fixes
+
+* **api:** use more appropriate status code ([8818bf6](https://github.com/discord-tickets/bot/commit/8818bf6d48df8a80faae84418cf79dc3903357de))
+* **i18n:** `it/commands.slash.add.name` ([ed7a7b7](https://github.com/discord-tickets/bot/commit/ed7a7b78cc46a06d8ce47c94c129640d772ee910))
+* **portal:** various improvements and fixes (4205306..b16c92d) ([4688d1b](https://github.com/discord-tickets/bot/commit/4688d1b5cfb6ddb758cea386a9ea167b3eea43ea))
+* token samesite=secure ([c6a982e](https://github.com/discord-tickets/bot/commit/c6a982e702e37119071bd6b13e9ddb48f9f16599))
+
+
+### Features
+
+* **api:** descriptive emoji error message ([3017c0c](https://github.com/discord-tickets/bot/commit/3017c0c458a7b6763a690230f8d29cead21efb3c))
+* **api:** generate missing icons ([46bd58d](https://github.com/discord-tickets/bot/commit/46bd58daf626c6df1e5600e017f6df8428026c52))
+* **api:** privilege levels ([130f5dc](https://github.com/discord-tickets/bot/commit/130f5dc590f0856982b440f58bcad5161be0699f))
+* **api:** redirect on logout ([4d42269](https://github.com/discord-tickets/bot/commit/4d42269a35b485e04a03df85e7c61a7d5e1282ef))
+* **api:** something ([b00d2f3](https://github.com/discord-tickets/bot/commit/b00d2f312eb0e3353213a1ebdcf28002342640ec))
+* **i18n:** update Italian translations ([22ffd82](https://github.com/discord-tickets/bot/commit/22ffd82a4c08162d7788f346256fb7f44cd481e8))
+* **i18n:** update Romanian translations ([6adcf2d](https://github.com/discord-tickets/bot/commit/6adcf2df5ec43ea22aac53d6b68e99e0e78de38d))
+
+
+
 ## [4.0.21](https://github.com/discord-tickets/bot/compare/v4.0.20...v4.0.21) (2024-11-09)
 
 
