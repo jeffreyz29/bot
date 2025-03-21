@@ -1,1 +1,511 @@
-{}
+buttons:
+  accept_close_request:
+    emoji: ✅
+    text: Đồng ý
+  cancel:
+    emoji: ➖
+    text: Từ chối
+  claim:
+    emoji: 🙌
+    text: Nhận ticket
+  close:
+    emoji: ✖️
+    text: Đóng
+  confirm_open:
+    emoji: ✅
+    text: Tạo ticket
+  create:
+    emoji: 🎫
+    text: Tạo ticket hỗ trợ
+  edit:
+    emoji: ✏️
+    text: Edit
+  reject_close_request:
+    emoji: ✖️
+    text: Từ chối tạo
+  transcript:
+    emoji: 📄
+    text: Lịch sử chat
+  unclaim:
+    emoji: ♻️
+    text: Huỷ nhận
+commands:
+  message:
+    create:
+      name: dmcreate
+    pin:
+      name: pinmsg
+      not_pinnable:
+        description: |
+          Tin nhắn không thể pin.
+          Vui lòng check quyền hạn của bot.
+        title: ❌ Lỗi
+      not_ticket:
+        description: Bạn chỉ có thể ghim tin nhắn trong phiếu.
+        title: ❌ Đây không phải là ticket
+      pinned:
+        description: Tin nhắn đã được ghim.
+        title: ✅ Ghim tin nhắn thành công
+  slash:
+    add:
+      added: ➡️ {added} đã được thêm vào bởi {by}.
+      description: Thêm thành viên vào vé
+      name: add
+      not_staff:
+        description: Chỉ nhân viên mới có thể thêm thành viên vào vé của người khác.
+        title: ❌ Lỗi
+      options:
+        member:
+          description: Thành viên để thêm vào vé
+          name: member
+        ticket:
+          description: Vé để thêm thành viên vào
+          name: ticket
+      success:
+        description: "{member} đã được thêm vào {ticket}."
+        title: ✅ Thêm thành công
+    claim:
+      description: Nhận ticket này
+      name: claim
+      not_staff:
+        description: Chỉ có nhân viên của host mới có thể nhận ticket.
+        title: ❌ Lỗi
+    close:
+      description: Yêu cầu đóng tickets
+      invalid_time:
+        description: "`{input}` không phải là thời gian hợp lệ."
+        title: ❌ Không hợp lệ
+      name: close
+      options:
+        reason:
+          description: Lí do đóng ticket
+          name: reason
+    force-close:
+      closed_one:
+        description: Ticket này sẽ đóng sau vài phút nữa.
+        title: ✅ Đóng ticket
+      confirm_multiple:
+        description: >
+          Bạn sắp đóng **{count}** vé đã không hoạt động
+          trong hơn `{time}`:
+
+          {tickets}
+        title: ❓ Bạn chắc không?
+      confirmed_multiple:
+        description: Các kênh sẽ bị xóa trong vài giây.
+        title:
+        - ✅ Đóng %d vé
+        - ✅ Đóng %d vé
+      description: Buộc đóng tickets
+      name: force-close
+      no_tickets:
+        description: >-
+          Không có vé mở nào không hoạt động trong hơn
+          `{time}`.
+        title: ❌ Không hoạt động
+      not_staff:
+        description: Chỉ có nhân viên mới có thể bắt buộc đóng vé.
+        title: ❌ Lỗi
+      options:
+        category:
+          description: Đóng tất cả các vé trong danh mục đã chỉ định (phải được sử
+            dụng với `time`)
+          name: category
+        reason:
+          description: Lí do đóng ticket(s)
+          name: reason
+        ticket:
+          description: Ticket để đóng
+          name: ticket
+        time:
+          description: Đóng tất cả các vé không hoạt động trong thời gian đã chỉ định
+          name: time
+    help:
+      description: Hiển thị menu lệnh
+      name: help
+      response:
+        commands: Commands
+        description: "**Sử dụng {command} để tạo phiếu yêu cầu và nhận hỗ trợ.**"
+        links:
+          commands: Full lệnh
+          docs: Documentation
+          feedback: Feedback
+          links: Link hữu dụng
+          support: Hỗ trợ
+        settings: Cài đặt bot
+      title: Help
+    move:
+      description: Di chuyển ticket này tới mục khác
+      moved: 🗃️ {by} đã chuyển từ **{from}** qua **{to}**.
+      name: move
+      not_staff:
+        description: Chỉ có nhân viên mới di chuyển ticket được.
+        title: ❌ Error
+      options:
+        category:
+          description: Danh mục để chuyển qua
+          name: category
+    new:
+      description: Tạo ticket mới
+      name: new
+      options:
+        references:
+          description: Số liên quan tới ticket
+          name: references
+    priority:
+      description: Cài đặt ưu tiên của tickets
+      name: priority
+      not_staff:
+        description: Chỉ nhân viên mới thay đổi sự ưu tiên của tickets được.
+        title: ❌ Lỗi
+      options:
+        priority:
+          choices:
+            HIGH: 🔴 Cao
+            LOW: 🟢 Thấp
+            MEDIUM: 🟠 Trung bình
+          description: Sự ưu tiên của tickets
+          name: priority
+      success:
+        description: Ưu tiên của vé này đã được thiết lập thành `{priority}`.
+        title: ✅ Đặt ưu tiên
+    release:
+      description: Ngừng support ticket này
+      name: release
+    remove:
+      description: Kick một member ra khỏi ticket
+      name: remove
+      not_staff:
+        description: Chỉ có nhân viên mới có thể xóa thành viên khỏi vé của người
+          khác.
+        title: ❌ Lỗi
+      options:
+        member:
+          description: Thành viên cần xóa khỏi vé
+          name: member
+        ticket:
+          description: Ticket để xóa thành viên khỏi
+          name: ticket
+      removed: ⬅️ {removed} đã được gỡ bỏ bởi {by}.
+      success:
+        description: "{member} đã được gỡ bỏ khỏi {ticket}."
+        title: ✅ Removed
+    rename:
+      description: Đổi tên kênh bán vé
+      error: Đã xảy ra lỗi khi đổi tên kênh.
+      invalid:
+        description: Tên phải dài từ 1 đến 100 ký tự.
+        title: Tên không hợp lệ
+      name: rename
+      not_staff:
+        description: Chỉ nhân viên mới có thể đổi tên vé.
+        title: ❌ Lỗi
+      options:
+        name:
+          description: Tên mới của kênh bán vé.
+          name: name
+      ratelimited:
+        description: Bạn đã đổi tên kênh này hai lần trong vòng 10 phút. Vui lòng
+          đợi trước khi thử lại.
+        title: Đã đạt đến giới hạn tỷ lệ
+      success:
+        description: Kênh bán vé đã được đổi tên thành `{name}`.
+        title: Kênh được đổi tên
+    tag:
+      description: Sử dụng thẻ
+      name: tag
+      options:
+        for:
+          description: Người dùng nhắm mục tiêu thẻ để
+          name: for
+        tag:
+          description: Tên của thẻ để sử dụng
+          name: tag
+    tickets:
+      description: Liệt kê vé của bạn hoặc của người khác
+      name: tickets
+      not_staff:
+        description: Chỉ nhân viên mới có thể xem vé của người khác.
+        title: ❌ Lỗi
+      options:
+        member:
+          description: Thành viên để liệt kê vé của
+          name: member
+      response:
+        description: Sử dụng {transcript} để tải xuống bản sao của vé.
+        fields:
+          closed:
+            name: close
+            none:
+              other: "{user} chưa tạo bất kỳ vé nào."
+              own: |
+                Bạn chưa tạo bất kỳ vé nào.
+                Sử dụng {new} để mở một vé.
+          open:
+            name: open
+        title:
+          other: "{displayName}'s tickets"
+          own: Ticket của bạn
+    topic:
+      description: Thay đổi chủ đề của một vé
+      name: topic
+    transcript:
+      description: Nhận bản sao của tickets
+      name: transcript
+      not_staff:
+        description: Chỉ có nhân viên mới có thể đọc biên bản phạt của người khác.
+        title: ❌ Lỗi
+      options:
+        member:
+          description: Thành viên tìm kiếm vé của
+          name: member
+        ticket:
+          description: Lấy bản sao của ticket
+          name: ticket
+    transfer:
+      description: Chuyển quyền sở hữu vé cho thành viên khác
+      name: transfer
+      options:
+        member:
+          description: Thành viên chuyển nhượng quyền sở hữu cho
+          name: member
+      transferred: 📨 {user} đã chuyển vé này cho {to}.
+      transferred_from: 📨 {user} đã chuyển vé này từ {from} sang {to}.
+  user:
+    create:
+      name: createticket
+      not_staff:
+        description: Chỉ nhân viên mới có thể mở vé cho thành viên khác.
+        title: ❌ Lỗi
+      prompt:
+        description: Nhấp vào nút bên dưới để tạo phiếu.
+        title: Vui lòng tạo một vé
+      sent:
+        description: "{user} đã được mời tạo phiếu trong **{category}**."
+        title: ✅ Đã gửi lời nhắc
+dm:
+  closed:
+    fields:
+      closed:
+        name: closed by
+        value: |-
+          {timestamp}
+          (after {duration})
+      closed_by: Đóng ticket bởi
+      created: Được tạo ra tại
+      feedback: Phản hồi của bạn
+      reason: Đóng ticket vì
+      response: Thời gian phản hồi
+      ticket: Ticket
+      topic: Topic
+    title: Ticket của bạn đã được đóng
+  confirm_open:
+    title: Bạn có muốn mở phiếu với chủ đề sau không?
+log:
+  admin:
+    changes: Thay đổi
+    description:
+      joined: "{user} {verb} {targetType}"
+      target:
+        category: a category
+        panel: a panel
+        question: a question
+        settings: the settings
+        tag: a tag
+    title:
+      joined: "{targetType} {verb}"
+      target:
+        category: Category
+        panel: Panel
+        question: Question
+        settings: Settings
+        tag: Tag
+    verb:
+      create: created
+      delete: deleted
+      update: updated
+  message:
+    description: "{user} {verb} a message"
+    message: Message
+    title: Message {verb}
+    verb:
+      delete: deleted
+      update: updated
+  ticket:
+    added: Added members
+    description: "{user} {verb} a ticket"
+    removed: Removed members
+    ticket: Ticket
+    title: Ticket {verb}
+    verb:
+      claim: claimed
+      close: closed
+      create: created
+      unclaim: released
+      update: updated
+menus:
+  category:
+    placeholder: Chọn loại ticket
+  guild:
+    placeholder: Chọn một máy chủ
+misc:
+  blocked:
+    description: Bạn không được phép tạo ticket.
+    title: ❌ Bị chặn
+  category_full:
+    description: |
+      Loại này đã đạt đến số lượng tối đa.
+      Vui lòng thử lại sau.
+    title: ❌ Full ticket
+  cooldown:
+    description: Vui lòng đợi {time} trước khi tạo một ticket khác trong danh mục
+      này.
+    title: ❌ Vui lòng chờ
+  error:
+    description: |
+      Xin lỗi, đã xảy ra lỗi không mong muốn.
+      Vui lòng cung cấp thông tin này cho quản trị viên.
+    fields:
+      identifier: Mã định danh
+    title: ⚠️ Có gì đó không ổn
+  expired:
+    description: Bạn không phản hồi kịp thời. Vui lòng thử lại.
+    title: ⏰ Hết hạn
+  expires_in: Hết hạn trong {time}
+  invalid_ticket:
+    description: Vui lòng chỉ định một vé hợp lệ.
+    title: ❌ Ticket không hợp lệ
+  member_limit:
+    description:
+    - Vui lòng sử dụng ticket hiện tại của bạn hoặc đóng nó trước khi tạo một vé khác.
+    - |
+      Vui lòng đóng 1 ticket trước khi tạo một phiếu khác.
+      Sử dụng `/tickets` để xem ticket hiện tại của bạn.
+    title:
+    - ❌ Bạn đã có ticket rồi
+    - ❌ Bạn đã có %d ticket mở
+  missing_roles:
+    description: >-
+      Bạn không có các vai trò cần thiết để có thể tạo một phiếu trong
+      danh mục này.
+    title: ❌ Vai trò không đủ
+  no_categories:
+    description: |-
+      Chưa có danh mục vé nào được cấu hình.
+      Cấu hình máy chủ của bạn tại {url}.
+    title: ❌ Không có loại vé nào
+  not_ticket:
+    description: Bạn chỉ có thể sử dụng lệnh này trong ticket.
+    title: ❌ Không phải kênh ticket
+  permissions_error:
+    description: Rất tiếc, thao tác không thành công do thiếu quyền.
+    fields:
+      for_admins:
+        name: Dành cho quản trị viên máy chủ
+        value: >
+          [Nhấp vào đây]({url}) để biết hướng dẫn giải quyết.
+    title: ⚠️ Có gì đó không ổn
+  ratelimited:
+    description: Hãy thử lại sau vài giây.
+    title: 🐢 Xin hãy chậm lại
+  role_error:
+    description: Rất tiếc, thao tác không thành công vì cấu hình không hợp lệ.
+    fields:
+      for_admins:
+        name: Dành cho quản trị viên máy chủ
+        value: >
+          Người dùng hoặc vai trò không hợp lệ đã được cung cấp, thường có nghĩa là
+          vai trò staff
+          đã bị xóa. [Nhấp vào đây]({url}) để biết hướng dẫn giải quyết.
+    title: ⚠️ Có gì đó không ổn
+  unknown_category:
+    description: Vui lòng thử danh mục khác.
+    title: ❌ Loại vé đó không tồn tại
+  update:
+    description: |
+      > [Xem `{version}` trên GitHub]
+    title: Đã có bản cập nhật
+modals:
+  feedback:
+    comment:
+      label: Feedback
+      placeholder: Good Good Support 5 Sao!
+    rating:
+      label: Đánh giá sao
+      placeholder: 1-5
+    title: Mời bạn quánh giá chúng tôi :3
+  topic:
+    label: Topic
+    placeholder: Ticket này nói về vấn đề gì
+ticket:
+  answers:
+    no_value: "*Không có phản hồi*"
+  claimed: 🙌 {user} đã nhận vé này.
+  close:
+    closed:
+      description: Ticket này sẽ bị xóa trong vài giây nữa…
+      title: ✅ Ticket đã đóng
+    forbidden:
+      description: Bạn không có quyền đóng phiếu này.
+      title: ❌ Lỗi
+    rejected: ✋ {user} từ chối yêu cầu đóng phiếu này.
+    staff_request:
+      archived: |2
+
+        Các tin nhắn trong kênh này sẽ được lưu trữ để tra cứu sau này.
+      description: |
+        {requestedBy} muốn đóng phiếu này.
+        Nhấp vào "Chấp nhận" để đóng ngay hoặc "Từ chối" nếu bạn vẫn cần trợ giúp.
+      title: ❓ Có thể đóng được vé này không?
+    user_request:
+      title: ❓ {requestedBy} muốn đóng phiếu này
+    wait_for_staff: ✋ Vui lòng đợi nhân viên đóng phiếu này.
+    wait_for_user: ✋ Vui lòng chờ người dùng phản hồi.
+  closing_soon:
+    description: |
+      Ticket này sẽ bị đóng do không hoạt động <t:{timestamp}:R>.
+      Gửi tin nhắn để hủy tự động hóa này.
+    title: ⌛ Ticket này sẽ sớm được đóng lại
+  created:
+    description: "Kênh ticket của bạn đã được tạo: {channel}."
+    title: ✅ Ticket đã được tạo
+  edited:
+    description: Những thay đổi của bạn đã được lưu.
+    title: ✅ Ticket đã cập nhật
+  feedback: Cảm ơn bạn đã nhận xét.
+  inactive:
+    description: |
+      Không có hoạt động nào trên kênh này kể từ <t:{timestamp}:R>.
+      Vui lòng tiếp tục cuộc trò chuyện hoặc {close} phiếu yêu cầu.
+    title: ⏰ Vé này không có hiệu lực
+  offline:
+    description: Hiện tại không có nhân viên nào trực nên có thể mất nhiều thời gian
+      hơn bình thường để nhận được sự giúp đỡ.
+    title: 😴 Chúng tôi không trực tuyến
+  opening_message:
+    content: |
+      {staff}
+      {creator} đã tạo một ticket mới
+    fields:
+      topic: Topic
+  references_message:
+    description: Tài liệu tham khảo [một tin nhắn]({url}) được gửi vào {timestamp}
+      bởi {author}.
+    title: ℹ️ Reference
+  references_ticket:
+    description: "Vé này có liên quan đến vé trước đó:"
+    fields:
+      date: Được tạo ra tại
+      number: STT
+      topic: Chủ đề
+    title: ℹ️ Reference
+  released: ♻️ {user} đã dừng hỗ trợ ticket này.
+  working_hours:
+    next:
+      description: Chúng tôi sẽ quay lại vào <t:{timestamp}:F> (<t:{timestamp}:R>),
+        mặc dù bạn có thể nhận được phản hồi trước thời điểm đó.
+      title: 🕗 Chúng tôi hiện không làm việc
+    today:
+      description: You may receive a response before, but we don't start working until
+        <t:{timestamp}:t> hôm nay (<t:{timestamp}:R>).
+      title: 🕗 Chúng tôi hiện không làm việc
